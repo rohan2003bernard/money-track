@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Hour Time Input</title>
+</head>
+<body>
+    <label for="timeInput">Select Time (12-Hour Format):</label>
+    <input type="number" id="hourInput" min="1" max="12" placeholder="hh"> :
+    <input type="number" id="minuteInput" min="0" max="59" placeholder="mm">
+    <select id="ampmInput">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+    </select>
+    <button id="submitButton">Submit</button>
+
+    <p id="displayTime"></p>
+
+    <script>
+        // Get references to HTML elements
+        var hourInput = document.getElementById("hourInput");
+        var minuteInput = document.getElementById("minuteInput");
+        var ampmInput = document.getElementById("ampmInput");
+        var submitButton = document.getElementById("submitButton");
+        var displayTime = document.getElementById("displayTime");
+
+        // Function to display the selected time
+        function displaySelectedTime() {
+            var hour = hourInput.value;
+            var minute = minuteInput.value;
+            var ampm = ampmInput.value;
+            displayTime.textContent = "Selected time: " + hour + ":" + minute + " " + ampm;
+        }
+
+        // Add an event listener to the submit button
+        submitButton.addEventListener("click", displaySelectedTime);
+    </script>
+</body>
+</html>
